@@ -24,9 +24,11 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
     /// Constants
     private val eventChannelName = "audio_streamer.eventChannel"
     private val sampleRate = 44100
-    private var bufferSize = 6400 * 2; /// Magical number!
+//    private var bufferSize = 6400 * 2; /// Magical number!
     private val maxAmplitude = 32767 // same as 2^15
     private val logTag = "AudioStreamerPlugin"
+    //BUFFERSIZE
+    private var bufferSize = 100
 
     /// Variables (i.e. will change value)
     private var eventSink: EventSink? = null
@@ -117,6 +119,8 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
                 /** Read data into buffer  */
                 record.read(audioBuffer, 0, audioBuffer.size)
                 Handler(Looper.getMainLooper()).post {
+                    Log.d("TAG", "$bufferSize")
+
                     /// Convert to list in order to send via EventChannel.
                     val audioBufferList = ArrayList<Double>()
                     for (impulse in audioBuffer) {

@@ -9,8 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  audio_streamer: ^2.1.0
-
+#  audio_streamer: ^2.1.0
+  audio_streamer:
+    git:
+      url: https://github.com/katicita/flutter-plugins_streamer_noisemeter.git
+      path: packages/audio_streamer
 dev_dependencies:
   flutter_test:
     sdk: flutter
