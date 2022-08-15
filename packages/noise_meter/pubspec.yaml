@@ -12,7 +12,7 @@ dependencies:
 #  audio_streamer: ^2.1.0
   audio_streamer:
     git:
-      url: https://github.com/katicita/flutter-plugins_streamer_noisemeter.git
+      url: https://github.com/Color-Lights/flutter-plugins_streamer_noisemeter.git
       path: packages/audio_streamer
 dev_dependencies:
   flutter_test:
