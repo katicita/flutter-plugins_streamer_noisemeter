@@ -24,11 +24,9 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
     /// Constants
     private val eventChannelName = "audio_streamer.eventChannel"
     private val sampleRate = 44100
-//    private var bufferSize = 6400 * 2; /// Magical number!
+    private var bufferSize = 6400 * 2; /// Magical number!
     private val maxAmplitude = 32767 // same as 2^15
     private val logTag = "AudioStreamerPlugin"
-    //BUFFERSIZE
-    private var bufferSize = 100
 
     /// Variables (i.e. will change value)
     private var eventSink: EventSink? = null
@@ -100,6 +98,9 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
      * https://www.newventuresoftware.com/blog/record-play-and-visualize-raw-audio-data-in-android
      */
     private fun streamMicData() {
+        //BUFFERSIZE
+        bufferSize = 100
+
         Thread(Runnable {
             Process.setThreadPriority(Process.THREAD_PRIORITY_AUDIO)
             val audioBuffer = ShortArray(bufferSize / 2)
