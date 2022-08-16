@@ -99,7 +99,7 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
      */
     private fun streamMicData() {
         //BUFFERSIZE
-        bufferSize = 100
+        bufferSize = 10
 
         Thread(Runnable {
             Process.setThreadPriority(Process.THREAD_PRIORITY_AUDIO)
